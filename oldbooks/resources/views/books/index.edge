@@ -11,6 +11,7 @@ All Authors
           <th>ID</th>
           <th>Title</th>
           <th>Condition</th>
+          <th>Price</th>
 
         </tr>
         @each(book in books)
@@ -22,6 +23,7 @@ All Authors
               </a>
             </td>
             <td>{{book.condition}}</td>
+            <td>{{book.price/100}}</td>
           </tr>
         @endeach
       </table>
