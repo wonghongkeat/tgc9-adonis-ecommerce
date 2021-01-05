@@ -15,16 +15,26 @@
     <table class="table">
         <tr>
             <th>ID</th>
-            <th>Name</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Date of Birth</th>
         </tr>
         @each(author in authors)
         <tr>
             <td>{{author.id}}</td>
             <td>
               <a href="{{ route('show_author', {author_id:author.id}) }}">
-              {{author.name}}
+              {{author.first_name}}
               </a>
             </td>
+            <td>
+              {{author.last_name}}
+            </td>
+            <td>
+              {{author.dob}}
+            </td>
+
+
         </tr>
         @endeach
     </table>

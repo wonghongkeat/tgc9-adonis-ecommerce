@@ -1,36 +1,19 @@
 'use strict'
 
-const authorsDB = [
-  {
-    "id": 1,
-    "name": "JRR Tolkien"
-  },
-  {
-    "id": 2,
-    "name": "CS Lewis"
-  },
-  {
-    "id": 3,
-    "name": "Goh Sin Tub"
-  },
-  {
-    "id": 4,
-    "name": "Catherine Lee"
-  }
-
-]
+const Author= use('App/Models/Author')
 
 class AuthorController {
-  index({ view }) {
+  async index({ view }) {
+    let allAuthors = await Author.all()
     return view.render('authors/index', {
-      'authors': authorsDB
+      'authors': allAuthors.toJSON()
     })
   }
 
-  show({ params, view }) {
-    let author = authorsDB.find(a => a.id === parseInt(params.author_id))
+  async show({ params, view }) {
+    let author = await Author.find(params.author_id)
     return view.render('authors/show',{
-      "author": author
+      "author": author.toJSON()
     })
   }
 }
