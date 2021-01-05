@@ -24,5 +24,8 @@ Route.post('books/create', 'BookController.processCreate')
 Route.get('books/:book_id', 'BookController.show').as('show_book')
 
 
-Route.get('authors/', 'AuthorController.index')
+Route.get('authors/', 'AuthorController.index').as('show_all_authors')
+Route.get('authors/create', 'AuthorController.create')
+Route.post('authors/create', 'AuthorController.processCreate')
 Route.get('authors/:author_id', 'AuthorController.show').as('show_author')
+

@@ -1,0 +1,27 @@
+@layout('base')
+
+@section('content')
+<h1>Create new Author</h1>
+<form method="POST">
+    {{csrfField()}}
+    <div>
+        <label class="form-label">
+            First Name
+        </label>
+        <input type="text" class="form-control" name="first_name"/>
+    </div>
+    <div>
+        <label class="form-label">
+        Last Name
+        </label>
+        <input type="text" class="form-control" name="last_name"/>
+    </div>
+    <div>
+        <label class="form-label">
+        Date of Birth
+        </label>
+        <input type="date" class="form-control" name="dob"/>
+    </div>
+    <input type="submit"/>
+</form>
+@endsection
