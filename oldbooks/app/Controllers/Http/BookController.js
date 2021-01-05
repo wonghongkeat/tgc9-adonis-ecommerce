@@ -21,6 +21,21 @@ class BookController {
       "book": book
     })
   }
+
+  create({view}) {
+    return view.render('books/create')
+  }
+
+  async processCreate({request, response}) {
+    let body = request.post();
+    console.log(body);
+    let book = new Book();
+    book.title = body.title;
+    book.condition = body.condition;
+    book.price = body.price;
+    await book.save();
+    return response.route('BookController.index')
+  }
 }
 
 module.exports = BookController
