@@ -1,0 +1,12 @@
+@layout('base')
+
+@section('content')
+<ul>
+    @each(p in publishers)
+      <li><a href="{{ route('show_publisher', {publisher_id:p.id}) }}">
+        {{p.name}}</a>, email: {{p.email}}
+        <a class="btn btn-danger btn-sm" href="{{ route('delete_publisher', {publisher_id:p.id} ) }}">x</a>
+      </li>
+    @endeach
+</ul>
+@endsection
