@@ -43,3 +43,4 @@ Route.get('/cloudinary/sign', 'CloudinaryController.sign').as('cloudinary_sign')
 
 
 Route.get('checkout/', 'CheckoutController.checkout').as('checkout')
+Route.post('checkout/process', 'CheckoutController.processPayment')
