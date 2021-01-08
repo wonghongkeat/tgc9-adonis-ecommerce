@@ -24,6 +24,7 @@ class BookController {
   }
 
   create({view}) {
+    console.log(Config.get('cloudinary.name'))
     return view.render('books/create',{
         cloudinaryName: Config.get('cloudinary.name'),
         cloudinaryPreset: Config.get('cloudinary.preset'),
