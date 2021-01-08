@@ -40,3 +40,6 @@ Route.post('publishers/:publisher_id/delete', 'PublisherController.processDelete
 
 
 Route.get('/cloudinary/sign', 'CloudinaryController.sign').as('cloudinary_sign')
+
+
+Route.get('checkout/', 'CheckoutController.checkout').as('checkout')
