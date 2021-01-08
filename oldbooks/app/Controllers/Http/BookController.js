@@ -2,6 +2,7 @@
 
 
 const Book = use('App/Models/Book')
+const Config = use('Config')
 
 class BookController {
   async index({view}) {
@@ -23,7 +24,16 @@ class BookController {
   }
 
   create({view}) {
-    return view.render('books/create')
+    return view.render('books/create',{
+        cloudinaryName: Config.get('cloudinary.name'),
+        cloudinaryPreset: Config.get('cloudinary.preset'),
+        cloudinaryApiKey: Config.get('cloudinary.api_key'),
+        sign_url:'/cloudinary/sign'
+      })
+
+
+
+
   }
 
   async processCreate({request, response}) {
@@ -33,6 +43,7 @@ class BookController {
     book.title = body.title;
     book.condition = body.condition;
     book.price = body.price;
+    book.image_url = body.image_url
     await book.save();
     return response.route('BookController.index')
   }

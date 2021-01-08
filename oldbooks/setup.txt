@@ -1,0 +1,8 @@
+adonis-ecommerce
+
+on gitpod if your repo is not able to run, change the .env.example and dublicate
+it to .env
+
+go to the web and find a randomkeygenerator and copy down CodeIgniter Encryption Keys
+
+at the project folder, do yarn install and do adonis migration:run
